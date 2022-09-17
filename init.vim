@@ -34,7 +34,7 @@ else
 	Plug 'maxmellon/vim-jsx-pretty'
 
 	call plug#end()
-	"
+	
 " Colorscheme
 	if has('termguicolors')
 	set termguicolors
