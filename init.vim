@@ -32,7 +32,6 @@ else
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'yuezk/vim-js'
 	Plug 'maxmellon/vim-jsx-pretty'
-	Plug 'mattn/emmet-vim'
 
 	call plug#end()
 	"
@@ -65,6 +64,7 @@ else
 	set wildmenu
 	set autoindent
 	set showmatch
+	autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Formatting
 	set tabstop=2
