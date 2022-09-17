@@ -15,6 +15,7 @@ else
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'neoclide/coc.nvim'
 	Plug 'preservim/nerdtree'
+	"Plug 'nvim-treesitter/nvim-treesitter'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'tpope/vim-fugitive'
 	"Plug 'junegunn/vim-easy-align'
@@ -31,6 +32,7 @@ else
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'yuezk/vim-js'
 	Plug 'maxmellon/vim-jsx-pretty'
+	Plug 'mattn/emmet-vim'
 
 	call plug#end()
 	"
@@ -51,7 +53,12 @@ else
 	set completeopt=noinsert,menuone,noselect
 	set hidden
 	set inccommand=split
-	set number
+	set number 
+	augroup numbertoggle
+  autocmd!
+		autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+		autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+	augroup END
 	set mouse=v
 	set splitbelow splitright
 	set title
