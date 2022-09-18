@@ -79,6 +79,15 @@ else
 	nnoremap <leader>e :NERDTreeFocus<CR>
 	" Start NERDTree and leave the cursor in it.
 	autocmd VimEnter * NERDTree | wincmd p
+	" Stat Fuzzy Finder
+	nnoremap <leader>f :FZF<CR>
+	" FZF key bindings
+	" nnoremap <C-f> :FZF<CR>
+	let g:fzf_action = {
+		\ 'ctrl-t': 'tab split',
+		\ 'ctrl-i': 'split',
+		\ 'ctrl-v': 'vsplit' }
+
 
 	inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
@@ -132,8 +141,8 @@ else
 	nmap <leader>rn <Plug>(coc-rename)
 
 	" Formatting selected code.
-	xmap <leader>f  <Plug>(coc-format-selected)
-	nmap <leader>f  <Plug>(coc-format-selected)
+	xmap <leader>cf  <Plug>(coc-format-selected)
+	nmap <leader>cf  <Plug>(coc-format-selected)
 
 	augroup mygroup
 	  autocmd!
