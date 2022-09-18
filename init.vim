@@ -32,6 +32,7 @@ else
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'yuezk/vim-js'
 	Plug 'maxmellon/vim-jsx-pretty'
+	Plug 'voldikss/vim-floaterm'
 
 	call plug#end()
 	
@@ -87,7 +88,14 @@ else
 		\ 'ctrl-t': 'tab split',
 		\ 'ctrl-i': 'split',
 		\ 'ctrl-v': 'vsplit' }
-
+	
+	" Floating Terrminal bindings
+	tnoremap <C-q> <C-\><C-n>
+	nnoremap <leader>tt :FloatermNew<CR><C-\><C-n>
+	nnoremap <leader>th :FloatermHide<CR><C-\><C-n>
+	nnoremap <leader>ts :FloatermShow<CR><C-\><C-n>
+	nnoremap <leader>tn :FloatermNext<CR><C-\><C-n>
+	nnoremap <leader>tp :FloatermPrev<CR><C-\><C-n>
 
 	inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
