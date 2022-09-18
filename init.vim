@@ -24,7 +24,8 @@ else
 	"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 	"Plug 'fatih/vim-go', { 'tag': '*' }
 	"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'mlaursen/vim-react-snippets'
@@ -80,14 +81,12 @@ else
 	nnoremap <leader>e :NERDTreeFocus<CR>
 	" Start NERDTree and leave the cursor in it.
 	autocmd VimEnter * NERDTree | wincmd p
-	" Stat Fuzzy Finder
-	nnoremap <leader>f :FZF<CR>
-	" FZF key bindings
-	" nnoremap <C-f> :FZF<CR>
-	let g:fzf_action = {
-		\ 'ctrl-t': 'tab split',
-		\ 'ctrl-i': 'split',
-		\ 'ctrl-v': 'vsplit' }
+	
+	" Telescope Keymappings
+	nnoremap <leader>ff <cmd>Telescope find_files<cr>
+	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+	nnoremap <leader>fb <cmd>Telescope buffers<cr>
+	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 	
 	" Floating Terrminal bindings
 	tnoremap <C-q> <C-\><C-n>
