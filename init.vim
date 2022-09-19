@@ -287,7 +287,7 @@ else
 	nnoremap <silent>    <A-<> <Cmd>BufferMovePrevious<CR>
 	nnoremap <silent>    <A->> <Cmd>BufferMoveNext<CR>
 	" Goto buffer in position...
-	nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
+	nnoremap <silent>    <A-s> <Cmd>BufferGoto 1<CR>
 	nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
 	nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
 	nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
@@ -296,7 +296,7 @@ else
 	nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
 	nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
 	nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
-	nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
+	nnoremap <silent>    <A-e> <Cmd>BufferLast<CR>
 	" Pin/unpin buffer
 	nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
 	" Close buffer
