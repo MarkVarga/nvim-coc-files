@@ -46,6 +46,7 @@ else
 	set background=dark
 	let g:gruvbox_material_background='dark'
 	let g:gruvbox_material_better_performance=1
+	let g:gruvbox_material_transparent_background=1
 	colorscheme gruvbox-material
 "	let g:airline_theme='gruvbox-material'
 	hi! CocErrorLine guifg=#c94036 guibg=#4f1814
