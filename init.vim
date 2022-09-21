@@ -36,6 +36,9 @@ else
 	Plug 'voldikss/vim-floaterm'
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'romgrk/barbar.nvim'
+	Plug 'xolox/vim-misc'
+	Plug 'xolox/vim-session'
+	Plug 'xolox/vim-notes'
 
 	call plug#end()
 	
@@ -98,6 +101,7 @@ else
 	nnoremap <leader>ts :FloatermShow<CR><C-\><C-n>
 	nnoremap <leader>tn :FloatermNext<CR><C-\><C-n>
 	nnoremap <leader>tp :FloatermPrev<CR><C-\><C-n>
+	nnoremap <leader>tl :CocList floaterm<CR>
 
 	inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
