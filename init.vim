@@ -72,6 +72,8 @@ else
 	set wildmenu
 	set autoindent
 	set showmatch
+	set cursorline
+	set cursorcolumn
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Formatting
