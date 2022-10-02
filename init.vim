@@ -85,10 +85,17 @@ else
 	let mapleader=' '
 
 	map <leader>h :noh<CR>
+	nnoremap <C-J> <C-W><C-J>
+	nnoremap <C-K> <C-W><C-K>
+	nnoremap <C-L> <C-W><C-L>
+	nnoremap <C-H> <C-W><C-H>
+
+	" NERDTree settings and keybindings
 	nnoremap <leader>n :NERDTreeToggle<CR>
 	nnoremap <leader>e :NERDTreeFocus<CR>
 	" Start NERDTree and leave the cursor in it.
 	autocmd VimEnter * NERDTree | wincmd p
+	let NERDTreeShowHidden=1
 	
 	" Telescope Keymappings
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -105,6 +112,9 @@ else
 	nnoremap <leader>tp :FloatermPrev<CR><C-\><C-n>
 	nnoremap <leader>tl :CocList floaterm<CR>
 
+	"Coc-Nvim settings and bindings
+	set updatetime=500	
+	set signcolumn=yes
 	inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
@@ -152,6 +162,10 @@ else
 
 	" Highlight the symbol and its references when holding the cursor.
 	autocmd CursorHold * silent call CocActionAsync('highlight')
+	" changing coc highlight color cause light grey is invisible
+" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
+" change
+	highlight CocHighlightText     guifg=#ebdbb2 guibg=#83a598
 
 	" Symbol renaming.
 	nmap <leader>rn <Plug>(coc-rename)
