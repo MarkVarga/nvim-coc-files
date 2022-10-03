@@ -39,6 +39,7 @@ else
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
 	Plug 'xolox/vim-notes'
+	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 	call plug#end()
 	
@@ -53,6 +54,8 @@ else
 	colorscheme gruvbox-material
 "	let g:airline_theme='gruvbox-material'
 	hi! CocErrorLine guifg=#c94036 guibg=#4f1814
+	" show hex and rgb colors
+	let g:Hexokinase_highlighters = ['virtual']
 	
 " Basic settings
 	set nocompatible
@@ -254,6 +257,7 @@ else
 "	nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 	command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 "	command! -nargs=0 Prettier :CocCommand prettier.formatFile
+	command! -nargs=0 Esfix :CocCommand eslint.executeAutofix 
 
 	" Close Tag settings
 	" filenames like *.xml, *.html, *.xhtml, ...
