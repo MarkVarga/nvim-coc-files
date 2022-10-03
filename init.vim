@@ -77,7 +77,6 @@ else
 	set showmatch
 	set cursorline
 	set cursorcolumn
-	autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Formatting
 	set tabstop=2
@@ -166,8 +165,8 @@ else
 	" Highlight the symbol and its references when holding the cursor.
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 	" changing coc highlight color cause light grey is invisible
-" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
-" change
+	" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
+	" change
 	highlight CocHighlightText     guifg=#ebdbb2 guibg=#83a598
 
 	" Symbol renaming.
