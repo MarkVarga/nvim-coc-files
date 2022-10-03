@@ -15,6 +15,7 @@ else
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'neoclide/coc.nvim'
 	Plug 'preservim/nerdtree'
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 	"Plug 'nvim-treesitter/nvim-treesitter'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'tpope/vim-fugitive'
@@ -39,7 +40,7 @@ else
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
 	Plug 'xolox/vim-notes'
-	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 	call plug#end()
 	
@@ -54,8 +55,6 @@ else
 	colorscheme gruvbox-material
 "	let g:airline_theme='gruvbox-material'
 	hi! CocErrorLine guifg=#c94036 guibg=#4f1814
-	" show hex and rgb colors
-	let g:Hexokinase_highlighters = ['virtual']
 	
 " Basic settings
 	set nocompatible
@@ -81,7 +80,6 @@ else
 " Formatting
 	set tabstop=2
 	set shiftwidth=2
-
 
 " Keymappings
 	let mapleader=' '

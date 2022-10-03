@@ -3,5 +3,6 @@
 	"diagnostic.virtualTextCurrentLineOnly": false,
 	"diagnostic.checkCurrentLine": true,
 	"highlight.colors.enable": true,
-	"highlight.colorNames.enable": true
+	"highlight.colorNames.enable": true,
+	"highlight.document.enable": true
 }
