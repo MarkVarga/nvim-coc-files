@@ -14,8 +14,8 @@ else
 	" add the plugin you want to use here.
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'neoclide/coc.nvim'
-	Plug 'preservim/nerdtree'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
+	"Plug 'preservim/nerdtree'
+	"Plug 'Xuyuanp/nerdtree-git-plugin'
 	"Plug 'nvim-treesitter/nvim-treesitter'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'tpope/vim-fugitive'
@@ -40,7 +40,7 @@ else
 	Plug 'xolox/vim-misc'
 	Plug 'xolox/vim-session'
 	Plug 'xolox/vim-notes'
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 	call plug#end()
 	
@@ -90,7 +90,7 @@ else
 	nnoremap <C-L> <C-W><C-L>
 	nnoremap <C-H> <C-W><C-H>
 
-	" NERDTree settings and keybindings
+	" NERDTree / CocExplorer settings and keybindings
 "	nnoremap <leader>n :NERDTreeToggle<CR>
 	nnoremap <leader>e :CocCommand explorer<CR>
 	" Start NERDTree and leave the cursor in it.
