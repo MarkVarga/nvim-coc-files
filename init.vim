@@ -91,11 +91,11 @@ else
 	nnoremap <C-H> <C-W><C-H>
 
 	" NERDTree settings and keybindings
-	nnoremap <leader>n :NERDTreeToggle<CR>
-	nnoremap <leader>e :NERDTreeFocus<CR>
+"	nnoremap <leader>n :NERDTreeToggle<CR>
+	nnoremap <leader>e :CocCommand explorer<CR>
 	" Start NERDTree and leave the cursor in it.
-	autocmd VimEnter * NERDTree | wincmd p
-	let NERDTreeShowHidden=1
+"	autocmd VimEnter * NERDTree | wincmd p
+"	let NERDTreeShowHidden=1
 	
 	" Telescope Keymappings
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
