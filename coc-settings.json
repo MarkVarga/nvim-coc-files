@@ -1,4 +1,5 @@
 {
+	"eslint.format.enable": true,
 	"diagnostic.virtualText": true,
 	"diagnostic.virtualTextCurrentLineOnly": false,
 	"diagnostic.checkCurrentLine": true,

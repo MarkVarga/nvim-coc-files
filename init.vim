@@ -38,10 +38,10 @@ else
 	Plug 'kyazdani42/nvim-web-devicons'
 	Plug 'romgrk/barbar.nvim'
 	Plug 'xolox/vim-misc'
-	Plug 'xolox/vim-session'
+	"Plug 'xolox/vim-session'
 	Plug 'xolox/vim-notes'
 	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
+	Plug 'mhinz/vim-startify'
 	call plug#end()
 	
 " Colorscheme
@@ -76,6 +76,7 @@ else
 	set showmatch
 	set cursorline
 	set cursorcolumn
+	set autoread
 
 " Formatting
 	set tabstop=2
@@ -303,8 +304,8 @@ else
 	
 	" Barbar config and bindings
 	" Move to previous/next
-	nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
-	nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
+	nnoremap <silent>    <A-h> <Cmd>BufferPrevious<CR>
+	nnoremap <silent>    <A-l> <Cmd>BufferNext<CR>
 	" Re-order to previous/next
 	nnoremap <silent>    <A-<> <Cmd>BufferMovePrevious<CR>
 	nnoremap <silent>    <A->> <Cmd>BufferMoveNext<CR>
@@ -342,5 +343,7 @@ else
 	" Other:
 	" :BarbarEnable - enables barbar (enabled by default)
 	" :BarbarDisable - very bad command, should never be used
+	" Startify settings and keybindings
+	nnoremap <leader>s :Startify<CR>
 
 endif
