@@ -4,7 +4,7 @@ if exists('g:vscode')
 
     let mapleader=' '
     
-    map <leader>h :noh<CR>
+    map <leader>n :noh<CR>
 else
     " ordinary Neovim
   set encoding=UTF-8 
@@ -42,6 +42,7 @@ else
 	Plug 'xolox/vim-notes'
 	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'mhinz/vim-startify'
+	Plug 'easymotion/vim-easymotion'
 	call plug#end()
 	
 " Colorscheme
@@ -85,7 +86,7 @@ else
 " Keymappings
 	let mapleader=' '
 
-	map <leader>h :noh<CR>
+	map <leader>n :noh<CR>
 	nnoremap <C-J> <C-W><C-J>
 	nnoremap <C-K> <C-W><C-K>
 	nnoremap <C-L> <C-W><C-L>
@@ -166,7 +167,7 @@ else
 	" changing coc highlight color cause light grey is invisible
 	" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
 	" change
-	highlight CocHighlightText     guifg=#ebdbb2 guibg=#83a598
+	highlight CocHighlightText     guifg=#282828 guibg=#bdae93
 
 	" Symbol renaming.
 	nmap <leader>rn <Plug>(coc-rename)
@@ -345,5 +346,12 @@ else
 	" :BarbarDisable - very bad command, should never be used
 	" Startify settings and keybindings
 	nnoremap <leader>s :Startify<CR>
+	
+	" Easymotion settings and keybindings
+	" Turn on case-insensitive feature
+	let g:EasyMotion_smartcase = 1
 
+	" JK motions: Line motions
+	map <leader><leader>h <Plug>(easymotion-linebackward)
+	map <leader><leader>l <Plug>(easymotion-lineforward)
 endif
