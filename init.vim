@@ -51,9 +51,12 @@ else
 	endif
 	set background=dark
 	let g:gruvbox_material_background='soft'
+	let g:gruvbox_material_foreground='material'
 	let g:gruvbox_material_better_performance=1
 	let g:gruvbox_material_transparent_background=1
 	let g:gruvbox_material_current_word='grey background'
+	let g:gruvbox_material_visual='grey background'
+	let g:gruvbox_material_menu_selection_background='orange'
 	colorscheme gruvbox-material
 "	let g:airline_theme='gruvbox-material'
 	hi! CocErrorLine guifg=#c94036 guibg=#4f1814
@@ -122,7 +125,7 @@ else
 	nnoremap <leader>tl :CocList floaterm<CR>
 
 	"Coc-Nvim settings and bindings
-	set updatetime=500	
+	set updatetime=100	
 	set signcolumn=yes
 	inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
