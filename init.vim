@@ -50,12 +50,19 @@ else
 	set termguicolors
 	endif
 	set background=dark
-	let g:gruvbox_material_background='dark'
+	let g:gruvbox_material_background='soft'
 	let g:gruvbox_material_better_performance=1
 	let g:gruvbox_material_transparent_background=1
+	let g:gruvbox_material_current_word='grey background'
 	colorscheme gruvbox-material
 "	let g:airline_theme='gruvbox-material'
 	hi! CocErrorLine guifg=#c94036 guibg=#4f1814
+	" Highlight the symbol and its references when holding the cursor.
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+	" changing coc highlight color cause light grey is invisible
+	" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
+	" change
+	"highlight CocHighlightText guifg=#282828 guibg=#bdae93
 	
 " Basic settings
 	set nocompatible
@@ -161,13 +168,6 @@ else
 	    call feedkeys('K', 'in')
 	  endif
 	endfunction
-
-	" Highlight the symbol and its references when holding the cursor.
-	autocmd CursorHold * silent call CocActionAsync('highlight')
-	" changing coc highlight color cause light grey is invisible
-	" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
-	" change
-	highlight CocHighlightText     guifg=#282828 guibg=#bdae93
 
 	" Symbol renaming.
 	nmap <leader>rn <Plug>(coc-rename)
