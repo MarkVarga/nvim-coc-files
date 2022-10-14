@@ -116,12 +116,10 @@ else
 	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 	
 	" Floating Terrminal bindings
-	tnoremap <C-q> <C-\><C-n>
-	nnoremap <leader>tt :FloatermNew<CR><C-\><C-n>
-	nnoremap <leader>th :FloatermHide<CR><C-\><C-n>
-	nnoremap <leader>ts :FloatermShow<CR><C-\><C-n>
-	nnoremap <leader>tn :FloatermNext<CR><C-\><C-n>
-	nnoremap <leader>tp :FloatermPrev<CR><C-\><C-n>
+	tnoremap <leader>tq <C-\><C-n>
+	nnoremap <leader>tn :FloatermNew --height=0.9 --width=0.9<CR><C-\><C-n>
+	nnoremap <leader>tg :FloatermNew --height=0.9 --width=0.9 lazygit<CR><C-\><C-n>
+	nnoremap <leader>tt :FloatermToggle<CR><C-\><C-n>
 	nnoremap <leader>tl :CocList floaterm<CR>
 
 	"Coc-Nvim settings and bindings
