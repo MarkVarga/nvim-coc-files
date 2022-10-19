@@ -118,7 +118,7 @@ else
 	" Floating Terrminal bindings
 	tnoremap <leader>tq <C-\><C-n>
 	nnoremap <leader>tn :FloatermNew --height=0.9 --width=0.9<CR><C-\><C-n>
-	nnoremap <leader>tg :FloatermNew --height=0.9 --width=0.9 lazygit<CR><C-\><C-n>
+	nnoremap <leader>tg :FloatermNew --height=0.9 --width=0.9 lazygit<CR>
 	nnoremap <leader>tt :FloatermToggle<CR><C-\><C-n>
 	nnoremap <leader>tl :CocList floaterm<CR>
 
@@ -240,7 +240,7 @@ else
 
 	" Mappings for CoCList
 	" Show all diagnostics.
-"	nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+	nnoremap <silent><nowait> <leader>cd  :<C-u>CocList diagnostics<cr>
 	" Manage extensions.
 "	nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 	" Show commands.
@@ -258,6 +258,7 @@ else
 	command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 "	command! -nargs=0 Prettier :CocCommand prettier.formatFile
 	command! -nargs=0 Esfix :CocCommand eslint.executeAutofix 
+	command! -nargs=0 Tsfix :CocCommand tsserver.executeAutofix 
 
 	" Close Tag settings
 	" filenames like *.xml, *.html, *.xhtml, ...
