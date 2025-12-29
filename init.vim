@@ -1,56 +1,120 @@
-if exists('g:vscode')
-    " VSCode extension
-    set nocompatible
+"====
+"====Plugins
+"====
 
-    let mapleader=' '
-    
-    map <leader>n :noh<CR>
-else
-    " ordinary Neovim
-  set encoding=UTF-8 
-	call plug#begin('/home/vml/.local/share/nvim/plugged')
-	
-	" below are some vim plugins for demonstration purpose.
-	" add the plugin you want to use here.
-	Plug 'sainnhe/gruvbox-material'
-	Plug 'neoclide/coc.nvim'
-	"Plug 'preservim/nerdtree'
-	"Plug 'Xuyuanp/nerdtree-git-plugin'
-	"Plug 'nvim-treesitter/nvim-treesitter'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'tpope/vim-fugitive'
-	"Plug 'junegunn/vim-easy-align'
-	"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-	"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-	"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-	"Plug 'fatih/vim-go', { 'tag': '*' }
-	"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'mlaursen/vim-react-snippets'
-	Plug 'alvan/vim-closetag'
-	Plug 'jiangmiao/auto-pairs'
-	Plug 'yuezk/vim-js'
-	Plug 'maxmellon/vim-jsx-pretty'
-	Plug 'voldikss/vim-floaterm'
-	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'romgrk/barbar.nvim'
-	Plug 'xolox/vim-misc'
-	"Plug 'xolox/vim-session'
-	Plug 'xolox/vim-notes'
-	"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-	Plug 'mhinz/vim-startify'
-	Plug 'easymotion/vim-easymotion'
-	call plug#end()
-	
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'sainnhe/gruvbox-material'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'udalov/kotlin-vim'
+
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+Plug 'mbbill/undotree'
+
+Plug 'junegunn/vim-easy-align'
+
+Plug 'itchyny/calendar.vim'
+
+Plug 'Chiel92/vim-autoformat'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-surround'
+
+Plug 'mzlogin/vim-markdown-toc'
+
+Plug 'honza/vim-snippets'
+
+Plug 'vim-airline/vim-airline'
+
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'tpope/vim-commentary'
+
+Plug 'easymotion/vim-easymotion'
+
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug 'junegunn/fzf.vim'
+" Initialize plugin system
+call plug#end()
+
+filetype plugin indent on
+
+"====
+"====Coc-Nvim
+"====
+
+"===Coc Extensions
+let g:coc_global_extensions = [
+			\'coc-clangd',
+			\'coc-css',
+			\'coc-flutter',
+			\'coc-html',
+			\'coc-json',
+			\'coc-marketplace',
+			\'coc-prettier',
+			\'coc-python',
+			\'coc-translator',
+			\'coc-tsserver',
+			\'coc-vimlsp',
+			\'coc-yaml',
+			\'coc-snippets',
+			\'coc-explorer'
+			\]
+
+"=== Coc-snippets
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+"
+" Make <tab> used for trigger completion, completion confirm
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+let g:coc_snippet_next = '<tab>'
+
 " Colorscheme
 	if has('termguicolors')
 	set termguicolors
 	endif
 	set background=dark
-	let g:gruvbox_material_background='soft'
+	let g:gruvbox_material_background='hard'
 	let g:gruvbox_material_foreground='material'
 	let g:gruvbox_material_better_performance=1
 	let g:gruvbox_material_transparent_background=1
@@ -66,14 +130,14 @@ else
 	" BUT is overwritten by scheme so defining it in an autocmd after colorscheme
 	" change
 	"highlight CocHighlightText guifg=#282828 guibg=#bdae93
-	
+
 " Basic settings
 	set nocompatible
 	set clipboard=unnamedplus
 	set completeopt=noinsert,menuone,noselect
 	set hidden
-	set inccommand=split
-	set number 
+"	set inccommand=split
+	set number
 	augroup numbertoggle
   autocmd!
 		autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
@@ -86,7 +150,7 @@ else
 	set autoindent
 	set showmatch
 	set cursorline
-	set cursorcolumn
+"	set cursorcolumn
 	set autoread
 
 " Formatting
@@ -108,13 +172,14 @@ else
 	" Start NERDTree and leave the cursor in it.
 "	autocmd VimEnter * NERDTree | wincmd p
 "	let NERDTreeShowHidden=1
-	
+
+
 	" Telescope Keymappings
-	nnoremap <leader>ff <cmd>Telescope find_files<cr>
-	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-	nnoremap <leader>fb <cmd>Telescope buffers<cr>
-	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-	
+	nnoremap <leader>ff <cmd>Files<cr>
+	nnoremap <leader>fg <cmd>Rg<cr>
+	nnoremap <leader>fb <cmd>Buffers<cr>
+	nnoremap <leader>fh <cmd>Helptags<cr>
+
 	" Floating Terrminal bindings
 	tnoremap <leader>tq <C-\><C-n>
 	nnoremap <leader>tn :FloatermNew --height=0.9 --width=0.9<CR><C-\><C-n>
@@ -123,7 +188,7 @@ else
 	nnoremap <leader>tl :CocList floaterm<CR>
 
 	"Coc-Nvim settings and bindings
-	set updatetime=100	
+	set updatetime=100
 	set signcolumn=yes
 	inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
@@ -257,8 +322,8 @@ else
 "	nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 	command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 "	command! -nargs=0 Prettier :CocCommand prettier.formatFile
-	command! -nargs=0 Esfix :CocCommand eslint.executeAutofix 
-	command! -nargs=0 Tsfix :CocCommand tsserver.executeAutofix 
+	command! -nargs=0 Esfix :CocCommand eslint.executeAutofix
+	command! -nargs=0 Tsfix :CocCommand tsserver.executeAutofix
 
 	" Close Tag settings
 	" filenames like *.xml, *.html, *.xhtml, ...
@@ -304,56 +369,16 @@ else
 	"
 	let g:closetag_close_shortcut = '<leader>>'
 	autocmd BufNewFile,BufRead *.js set filetype=javascript.jsx
-	
-	" Barbar config and bindings
-	" Move to previous/next
-	nnoremap <silent>    <A-h> <Cmd>BufferPrevious<CR>
-	nnoremap <silent>    <A-l> <Cmd>BufferNext<CR>
-	" Re-order to previous/next
-	nnoremap <silent>    <A-<> <Cmd>BufferMovePrevious<CR>
-	nnoremap <silent>    <A->> <Cmd>BufferMoveNext<CR>
-	" Goto buffer in position...
-	nnoremap <silent>    <A-s> <Cmd>BufferGoto 1<CR>
-	nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
-	nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
-	nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
-	nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
-	nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
-	nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
-	nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
-	nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
-	nnoremap <silent>    <A-e> <Cmd>BufferLast<CR>
-	" Pin/unpin buffer
-	nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
-	" Close buffer
-	nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
-	" Wipeout buffer
-	"                          :BufferWipeout
-	" Close commands
-	"                          :BufferCloseAllButCurrent
-	"                          :BufferCloseAllButPinned
-	"                          :BufferCloseAllButCurrentOrPinned
-	"                          :BufferCloseBuffersLeft
-	"                          :BufferCloseBuffersRight
-	" Magic buffer-picking mode
-	nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
-	" Sort automatically by...
-	nnoremap <silent> <Space>bb <Cmd>BufferOrderByBufferNumber<CR>
-	nnoremap <silent> <Space>bd <Cmd>BufferOrderByDirectory<CR>
-	nnoremap <silent> <Space>bl <Cmd>BufferOrderByLanguage<CR>
-	nnoremap <silent> <Space>bw <Cmd>BufferOrderByWindowNumber<CR>
 
-	" Other:
-	" :BarbarEnable - enables barbar (enabled by default)
-	" :BarbarDisable - very bad command, should never be used
+	
 	" Startify settings and keybindings
 	nnoremap <leader>s :Startify<CR>
-	
+
 	" Easymotion settings and keybindings
 	" Turn on case-insensitive feature
 	let g:EasyMotion_smartcase = 1
 
 	" JK motions: Line motions
-	map <leader><leader>h <Plug>(easymotion-linebackward)
-	map <leader><leader>l <Plug>(easymotion-lineforward)
-endif
+	map <leader><leader>j <Plug>(easymotion-j)
+	map <leader><leader>k <Plug>(easymotion-k)
+
